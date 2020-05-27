@@ -19,14 +19,14 @@ export default class Main extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
 
-    this.setState({loading: true});
+    this.setState({ loading: true });
 
     const { newRepo, repositories } = this.state;
 
     const response = await api.get(`/repos/${newRepo}`);
 
     const data = {
-       name: response.data.full_name,
+      name: response.data.full_name,
     };
 
     this.setState({
@@ -34,7 +34,6 @@ export default class Main extends Component {
       newRepo: '',
       loading: false,
     });
-
   };
 
   render() {
@@ -57,9 +56,10 @@ export default class Main extends Component {
 
           <SubmitButton loading={loading}>
             {loading ? (
-            <FaSpider color= "#FFF" size={14} />
+              <FaSpider color="#FFF" size={14} />
             ) : (
-            <FaPlus color="#FFF" size={14} />)}
+              <FaPlus color="#FFF" size={14} />
+            )}
           </SubmitButton>
         </Form>
       </Container>
